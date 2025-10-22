@@ -1,4 +1,4 @@
-# 💻 Gestão de Financias (pensar em um nome)
+# 💻 FinanceControl-API
 
 ## ⚙️ Funcionalidades
 
