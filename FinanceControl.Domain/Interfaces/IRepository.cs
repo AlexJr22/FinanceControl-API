@@ -2,7 +2,7 @@ using System.Linq.Expressions;
 
 namespace FinanceControl.Domain.Interfaces;
 
-public interface IRequests<T>
+public interface IRepository<T>
 {
     Task<T> GetAsync(Expression<Func<T, bool>> predicate);
     Task<IEnumerable<T>> GetAllAsync();
