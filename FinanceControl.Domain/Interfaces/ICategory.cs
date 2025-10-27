@@ -1,0 +1,5 @@
+using FinanceControl.Domain.Entities;
+
+namespace FinanceControl.Domain.Interfaces;
+
+public interface ICategory : IRequests<Category> { }
