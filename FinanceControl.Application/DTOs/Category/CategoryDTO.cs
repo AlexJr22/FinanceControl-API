@@ -2,4 +2,5 @@
 
 namespace FinanceControl.Application.DTOs.Category;
 
-public record class CategoryDTO(Guid Id, Guid UserId, string Name, TransactionType TypeCategory);
+public record class CategoryDTO(Guid Id, Guid UserId, string Name, TransactionType TypeCategory) 
+    : BaseCategoryDTO(UserId, Name, TypeCategory);
