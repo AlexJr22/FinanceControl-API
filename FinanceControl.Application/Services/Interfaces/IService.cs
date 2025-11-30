@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace FinanceControl.Application.Services.Servives.Interfaces;
+namespace FinanceControl.Application.Services.Interfaces;
 
 public interface IService<T>
 {
