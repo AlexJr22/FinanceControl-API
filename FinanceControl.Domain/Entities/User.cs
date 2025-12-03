@@ -1,10 +1,31 @@
 ﻿namespace FinanceControl.Domain.Entities;
 
-public class User(Guid id, string name, string surname,string email, string passward)
+public class User
 {
-    public Guid Id { get; set; } = id;
-    public string Name { get; set; } = name;
-    public string Surname { get; set; } = surname;
-    public string Email { get; set; } = email;
-    public string Password { get; set; } = passward;
+    public Guid UserId { get; private set; }
+    public string? Name { get; private set; }
+    public string? Surname { get; private set; }
+    public string? Email { get; private set; }
+    public string? Password { get; private set; }
+
+    public ICollection<Transaction>? Transactions { get; set; }
+
+    public User(Guid userId, string name, string surname,string email, string passward)
+    {
+        UserId = userId;
+        Name = name;
+        Surname = surname;
+        Email = email;
+        Password = passward;
+    }
+
+    public User(string name, string surname,string email, string passward)
+    {
+        Name = name;
+        Surname = surname;
+        Email = email;
+        Password = passward;
+    }
+
+    private User() { }
 }
