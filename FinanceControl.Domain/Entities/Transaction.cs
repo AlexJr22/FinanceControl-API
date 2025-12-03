@@ -1,24 +1,51 @@
 ﻿namespace FinanceControl.Domain.Entities;
 
-public class Transaction(
-    Guid id,
-    Guid userId,
-    Guid accountId,
-    Guid categoryId,
-    decimal amount,
-    DateTime date,
-    DateTime createdAt,
-    string description,
-    TransactionType typeTransaction
-)
+public class Transaction
 {
-    public Guid Id { get; set; } = id;
-    public Guid UserId { get; set; } = userId;
-    public Guid AccountId { get; set; } = accountId;
-    public Guid CategoryId { get; set; } = categoryId;
-    public decimal Amount { get; set; } = amount;
-    public TransactionType TypeTransaction { get; set; } = typeTransaction;
-    public DateTime Date { get; set; } = date;
-    public DateTime createdAt { get; set; } = createdAt;
-    public string Description { get; set; } = description;
+    public Guid TransactionId { get; private set; }
+    public decimal Amount { get; private set; }
+    public TransactionType TypeTransaction { get; private set; }
+    public DateTime Date { get; private set; }
+    public DateTime CreatedAt { get; private set; }
+    public string? Description { get; private set; }
+
+    public Guid CategoryId { get; private set; }
+    public Category? Category { get; set; }
+
+    public Guid UserId { get; private set; }
+    public User? User { get; set; }
+
+    public Transaction(
+        Guid transactionId,
+        decimal amount,
+        DateTime date,
+        DateTime createdAt,
+        string description,
+        TransactionType typeTransaction
+    )
+    {
+        TransactionId = transactionId;
+        Amount = amount;
+        TypeTransaction = typeTransaction;
+        Date = date;
+        CreatedAt = createdAt;
+        Description = description;
+    }
+
+    public Transaction(
+        decimal amount,
+        DateTime date,
+        DateTime createdAt,
+        string description,
+        TransactionType typeTransaction
+    )
+    {
+        Amount = amount;
+        TypeTransaction = typeTransaction;
+        Date = date;
+        CreatedAt = createdAt;
+        Description = description;
+    }
+
+    private Transaction() { }
 }
