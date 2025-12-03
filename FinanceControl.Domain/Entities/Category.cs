@@ -1,9 +1,23 @@
 ﻿namespace FinanceControl.Domain.Entities;
 
-public class Category(Guid id, Guid userId, string name, TransactionType typeCategory)
+public class Category
 {
-    public Guid Id { get; set; } = id;
-    public Guid UserId { get; set; } = userId;
-    public string Name { get; set; } = name;
-    public TransactionType TypeCategory { get; set; } = typeCategory;
+    public Guid Id { get; private set; }
+    public string? Name { get; private set; }
+    public TransactionType TypeCategory { get; private set; }
+
+    public Category(string name, TransactionType typeCategory)
+    {
+        Name = name;
+        TypeCategory = typeCategory;
+    }
+
+    public Category(Guid id, Guid userId, string name, TransactionType typeCategory)
+    {
+        Id = id;
+        Name = name;
+        TypeCategory = typeCategory;
+    }
+
+    private Category() { }
 }
